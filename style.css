@@ -49,10 +49,9 @@ section {
   display: flex;
   flex-direction: column; /* Default to vertical scrolling */
   overflow-x: auto; /* Enable horizontal scrolling */
-  scroll-behavior: smooth; /* Add smooth scrolling behavior */
   gap: 20px; /* Add space between cards */
   padding: 20px;
-  margin: 1em 15em; /* Add 5% margins around the timeline section */
+  margin: 6%; /* Add 5% margins around the timeline section */
   scrollbar-width: none; /* Hide scrollbar in Firefox */
   -ms-overflow-style: none; /* Hide scrollbar in Internet Explorer and Edge */
 }
