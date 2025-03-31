@@ -1,1 +1,205 @@
-/* Add your CSS here */
+/* Reset default margin and padding for all elements */
+* {
+  margin: 0; /* Remove default margins */
+  padding: 0; /* Remove default padding */
+  box-sizing: border-box; /* Include padding and border in element's total size */
+  font-family: 'Roboto', Arial, sans-serif; /* Set all fonts to Roboto with fallbacks */
+}
+
+body {
+  background-color: #f6f6f5; /* Set the page background to a very light grey */
+}
+
+/* Center the paragraph below the timeline */
+body > p {
+  text-align: center; /* Center the text horizontally */
+  margin-top: 1em; /* Add some spacing above the paragraph */
+  font-size: 1em; /* Set a readable font size */
+  color: #183b6e; /* Use a dark blue color for better visibility */
+}
+
+/* Style for the hero section */
+header div {
+  position: relative; /* Ensure proper positioning for the background image */
+  overflow: hidden; /* Hide any overflow from the hero image */
+  display: flex; /* Use flexbox for centering content */
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+  height: 14em; /* Set a fixed height for the hero section */
+  text-align: center; /* Center the text horizontally */
+  margin: 0; /* Remove any margins */
+  width: 100vw; /* Ensure the hero section spans the full width of the viewport */
+  color: white; /* Set the font color to white for the hero section */
+}
+
+/* Style for the hero section heading */
+header h1 {
+  margin: .3em;
+  font-size: 2.5em; /* Increase the font size for the main heading */
+}
+
+/* Style for the hero image */
+header div img[src="img/Chip-Factory-Hero.avif"] {
+  filter: grayscale(100%) brightness(30%); /* Apply black-and-white filter and decrease brightness */
+}
+
+/* General styles for the timeline section */
+section {
+  display: flex;
+  flex-direction: column; /* Default to vertical scrolling */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scroll-behavior: smooth; /* Add smooth scrolling behavior */
+  gap: 20px; /* Add space between cards */
+  padding: 20px;
+  margin: 1em 15em; /* Add 5% margins around the timeline section */
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar in Internet Explorer and Edge */
+}
+
+/* Custom scrollbar styles */
+section::-webkit-scrollbar {
+  height: 8px; /* Set the height of the horizontal scrollbar */
+}
+
+section::-webkit-scrollbar-thumb {
+  background-color: #183b6e; /* Set the color of the scrollbar thumb */
+  border-radius: 4px; /* Add rounded corners to the scrollbar thumb */
+}
+
+section::-webkit-scrollbar-track {
+  background-color: #f0f0f0; /* Set the color of the scrollbar track */
+}
+
+/* Custom scrollbar styles for the timeline */
+.timeline {
+  scrollbar-width: thin; /* Use a thin scrollbar for Firefox */
+  scrollbar-color: lightgrey transparent; /* Set the scrollbar thumb and track colors */
+}
+
+.timeline::-webkit-scrollbar {
+  height: 6px; /* Set the height of the horizontal scrollbar */
+}
+
+.timeline::-webkit-scrollbar-thumb {
+  background-color: lightgrey; /* Set the color of the scrollbar thumb */
+  border-radius: 3px; /* Add rounded corners to the scrollbar thumb */
+}
+
+.timeline::-webkit-scrollbar-track {
+  background-color: transparent; /* Set the color of the scrollbar track */
+}
+
+/* Style for individual cards */
+section div {
+  position: relative; /* Enable positioning for overlay text */
+  width: auto; /* Allow the width to adjust automatically */
+  aspect-ratio: 1 / 1; /* Ensure the width matches the height to make the cards square */
+  margin: 0 auto; /* Center cards on mobile */
+  border-radius: 0; /* Remove rounded edges */
+  overflow: hidden; /* Ensure content stays within the card */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  background-color: white; /* Set the card background to white */
+}
+
+/* Ensure images fit properly within the card */
+section div img {
+  display: block; /* Remove any extra spacing below the image */
+  width: 100%; /* Make the image take up the full width of the card */
+  height: calc(100% - 3.8em - 1.0em); /* Subtract the combined height of h2 and h3, including their margins */
+  object-fit: cover; /* Ensure the image fills the container without distortion */
+}
+
+/* Style for the overlay text */
+.card-image-container p {
+  position: absolute; /* Position the text on top of the container */
+  top: 0; /* Align the text to the top of the container */
+  left: 0; /* Align the text to the left of the container */
+  width: 100%; /* Make the text span the full width of the container */
+  height: 100%; /* Make the text span the full height of the container */
+  background: rgba(24, 59, 110, 0.8); /* Change the overlay background to a dark blue with transparency */
+  color: white; /* Keep the text color white for contrast */
+  display: flex; /* Ensure the text is flex container */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  text-align: center; /* Center the text content */
+  line-height: 1.5; /* Improve readability with line spacing */
+  opacity: 0; /* Make the overlay fully transparent initially */
+  visibility: hidden; /* Ensure the overlay is not interactable when hidden */
+  transition: opacity 0.3s ease-in, visibility 0.3s ease-in; /* Smooth fade-in effect */
+}
+
+/* Show the overlay text on hover */
+.card-image-container:hover p {
+  opacity: 1; /* Make the overlay fully visible */
+  visibility: visible; /* Allow interaction with the overlay */
+}
+
+/* Style for the paragraph overlay */
+section div p {
+  position: absolute; /* Position the paragraph on top of the card */
+  top: 0; /* Align the overlay to the top of the card */
+  left: 0; /* Align the overlay to the left of the card */
+  width: 100%; /* Make the overlay span the full width of the card */
+  height: 100%; /* Make the overlay span the full height of the card */
+  background: rgba(24, 59, 110, 0.8); /* Add a semi-transparent background */
+  color: white; /* Make the text color white for contrast */
+  display: none; /* Hide the overlay by default */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+  text-align: center; /* Center the text content */
+  line-height: 1.5; /* Improve readability with line spacing */
+  padding: 10%; /* Add 10% padding on all sides */
+  box-sizing: border-box; /* Include padding in the element's total width and height */
+  transition: opacity 0.3s ease-in; /* Add a smooth fade-in effect */
+  opacity: 0; /* Start with the overlay hidden */
+}
+
+/* Show the paragraph overlay on hover */
+section div:hover p {
+  display: flex; /* Reveal the overlay */
+  opacity: 1; /* Fully show the overlay with the fade-in effect */
+}
+
+/* Style for the timeline card headings */
+section h2 {
+  margin-top: .3em; /* Add a small margin around the heading */
+  font-size: 1.8em; /* Increase the font size for h2 */
+}
+
+/* Style for the timeline card subheadings */
+section h3 {
+  margin-top: .2em;
+  margin-bottom: .6em; /* Add vertical margins to h3 elements */
+}
+
+/* Center headers in the timeline card section */
+section h2, section h3 {
+  text-align: center; /* Center the text horizontally */
+}
+
+/* Media query for desktop screens */
+@media (min-width: 768px) {
+  section {
+    display: flex; /* Ensure the section uses flexbox */
+    flex-direction: row; /* Arrange cards horizontally */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 30px; /* Add space between cards */
+    height: 350px; /* Set a fixed height for the scrollable area */
+    scroll-snap-type: x mandatory; /* Optional: Add smooth snapping for better UX */
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar in Internet Explorer and Edge */
+  }
+
+  section::-webkit-scrollbar {
+    display: none; /* Hide scrollbar in Chrome, Safari, and Edge */
+  }
+
+  section div {
+    /*width: calc((100% - 60px) / 3); /* Ensure three cards fit within the section */
+    flex-shrink: 0; /* Prevent cards from shrinking */
+    margin: 0; /* Remove auto margin */
+    scroll-snap-align: start; /* Optional: Align cards to the start when scrolling */
+    aspect-ratio: 1 / 1; /* Ensure the width matches the height to make the cards square */
+  }
+}
